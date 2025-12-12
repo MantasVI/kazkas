@@ -1,19 +1,27 @@
+#!/bin/bash
 git status
 git add *
 git add .
 git commit -m "smth"
 git rm *
 git rm -r [folder]
-git rm --force - absoliuciai istrina faila
-git rm --cached - unstagina tiktais faila
+git rm --force  # absoliuciai istrina faila
+git rm --cached  # unstagina tiktais faila
 git reset --hard
-git branch - kokie branchai yra
-git branch [name] - sukuriam brancha su name
-git checkout [branch name] - nueiname i ta brancha
-git merge [branch name] - sujungiam branchus i viena
+git branch # kokie branchai yra
+git branch [name] # sukuriam brancha su name
 
-git push origin main - issiuncia viska i remote repo githube
-git fetch - atnesa viska kas pasikeite github repo nieko nemergina
-git pull - viska is repo kas pasikeite atsiuncia man ir sumergina 
+git checkout [branch name] # nueiname i ta brancha
+git merge [branch name] # sujungiam branchus i viena
 
+git push origin main # issiuncia viska i remote repo githube
+git fetch # atnesa viska kas pasikeite github repo nieko nemergina
+git pull # viska is repo kas pasikeite atsiuncia man ir sumergina 
+
+git stash #issaugo koda necommitinant
+git stash pop # grazina issaugota koda ir sunaikina stash
+git stash apply # grazina issaugota koda ir nesunaikina stasho
+
+git revert  [commit id] #revertina dabartini commita ir sukuria nauja commita
+git reset [commit id] #isnaikina visus commitus iki commit id kuri pasirinkau 
 git reset HEAD ~
