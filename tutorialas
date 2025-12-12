@@ -12,4 +12,8 @@ git branch [name] - sukuriam brancha su name
 git checkout [branch name] - nueiname i ta brancha
 git merge [branch name] - sujungiam branchus i viena
 
+git push origin main - issiuncia viska i remote repo githube
+git fetch - atnesa viska kas pasikeite github repo nieko nemergina
+git pull - viska is repo kas pasikeite atsiuncia man ir sumergina 
+
 git reset HEAD ~
