@@ -4,5 +4,7 @@ git add .
 git commit -m "smth"
 git rm *
 git rm -r [folder]
+git rm --force - absoliuciai istrina faila
+git rm --cached - unstagina tiktais faila
 git reset --hard
 git reset HEAD ~
