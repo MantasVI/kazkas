@@ -7,4 +7,9 @@ git rm -r [folder]
 git rm --force - absoliuciai istrina faila
 git rm --cached - unstagina tiktais faila
 git reset --hard
+git branch - kokie branchai yra
+git branch [name] - sukuriam brancha su name
+git checkout [branch name] - nueiname i ta brancha
+git merge [branch name] - sujungiam branchus i viena
+
 git reset HEAD ~
