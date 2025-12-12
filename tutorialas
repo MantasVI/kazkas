@@ -1,29 +1,57 @@
 #!/bin/bash
-git status
-git add *
-git add .
-git commit -m "smth"
-git rm *
-git rm -r [folder]
-git rm --force  # absoliuciai istrina faila
-git rm --cached  # unstagina tiktais faila
-git reset --hard
-git branch # kokie branchai yra
-git branch [name] # sukuriam brancha su name
 
-git checkout [branch name] # nueiname i ta brancha
-git merge [branch name] # sujungiam branchus i viena
+# Global identity
+git config --global user.email "mantasvisakavicius@gmail.com"
+git config --global user.name "MantasVI"
 
-git push origin main # issiuncia viska i remote repo githube
-git fetch # atnesa viska kas pasikeite github repo nieko nemergina
-git pull # viska is repo kas pasikeite atsiuncia man ir sumergina 
+# Repo state
+git status                    # parodo repo busena
 
-git stash #issaugo koda necommitinant
-git stash pop # grazina issaugota koda ir sunaikina stash
-git stash apply # grazina issaugota koda ir nesunaikina stasho
+# Adding files
+git add .                     # prideda viska is current dir (recommended)
+git add --all                 # prideda viska (iskaitant deletions)
+git add file.txt              # prideda konkretu faila
+git add *                     # ❌ bloga praktika (neima hidden failu, gali bugint)
 
-git revert  [commit id] #revertina dabartini commita ir sukuria nauja commita
-git reset [commit id] #isnaikina visus commitus iki commit id kuri pasirinkau 
-git reset HEAD ~
-git rebase [branch receiving all the files] [branch giving all the files to the 1st branhc]
+# Commit
+git commit -m "message"       # sukuria commit is STAGED failu
+# ❌ commit NE "issiuncia failus i staged", o atvirksciai
 
+# Removing files
+git rm file.txt               # istrina faila + stage deletion
+git rm -r folder/             # rekursyviai istrina folderi
+git rm --cached file.txt      # nuima faila is git, bet palieka diske
+git rm -f file.txt            # force remove (jei konfliktai)
+
+# Undo / reset
+git reset --soft HEAD~1       # undo commit, palieka staged
+git reset HEAD~1              # undo commit, unstaged
+git reset --hard HEAD~1       # ❌ visiskai istrina commit + failus (PAVOJINGA)
+git reset --hard              # ❌ istrina VISUS local pakeitimus
+
+# Branches
+git branch                    # parodo branchus
+git branch name               # sukuria nauja brancha
+git checkout name             # pereina i brancha
+git checkout -b name          # sukuria + pereina i brancha
+
+# Merge
+git merge branch-name         # sumergina branch-name i dabartini brancha
+
+# Remote
+git push origin main          # issiuncia commitus i GitHub
+git fetch                     # parsisiuncia remote info, nemergina
+git pull                      # fetch + merge
+
+# Stash
+git stash                     # issaugo pakeitimus be commit
+git stash pop                 # grazina ir istrina stash
+git stash apply               # grazina, bet palieka stash
+
+# Revert vs reset
+git revert COMMIT_ID          # saugu, sukuria nauja commit
+git reset COMMIT_ID           # ❌ perraso istorija (tik local)
+
+# Rebase
+git rebase target-branch
+# perraso commit istorija (naudoti atsargiai)
