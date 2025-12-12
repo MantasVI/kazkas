@@ -25,3 +25,5 @@ git stash apply # grazina issaugota koda ir nesunaikina stasho
 git revert  [commit id] #revertina dabartini commita ir sukuria nauja commita
 git reset [commit id] #isnaikina visus commitus iki commit id kuri pasirinkau 
 git reset HEAD ~
+git rebase [branch receiving all the files] [branch giving all the files to the 1st branhc]
+
